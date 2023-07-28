@@ -113,7 +113,7 @@ searchBtn.addEventListener("click", async function (e) {
   const res = await fetch(
     `http://ergast.com/api/f1/${year}/${race + 1}/driverStandings.json?limit=${resNum}`)
   const data = await res.json()
-  if (data.MRData.StandingsTable){
+  if (data.MRData.StandingsTable.StandingsLists[0]){
     tableName.innerText = name
     for (driver of data.MRData.StandingsTable.StandingsLists[0].DriverStandings){
       tableBody.innerHTML += `<tr>
